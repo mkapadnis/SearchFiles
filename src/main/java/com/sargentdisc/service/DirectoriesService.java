@@ -1,15 +1,16 @@
 package com.sargentdisc.service;
 
-import com.sargentdisc.model.FilesResponse;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
-
+import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 
 public interface DirectoriesService {
 
-    @Value( "${configured.parent.directory}" )
-    String configuredDirectory="";
-
-    List<FilesResponse> searchFilesByWord(String word);
+    /**
+     * find files where by multiple filenames
+     * @param words
+     * @return
+     * @throws IOException
+     */
+    Set<String> searchFilesByWord(List<String> words) throws IOException;
 }
